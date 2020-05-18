@@ -1,0 +1,111 @@
+<HTML>
+<head>
+<title> MY FIRST HTML FORM
+</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="col-lg-8 m-auto d-block">
+    <form action="capture.png"  method="post" onsubmit="return valid()" class="bg-light">
+      <div class="form-group">
+    <label> USERNAME:</label>
+    <input type="text" placeholder="please fill the username" class="form-control" id="user"  autocomplete="off">
+     <spand id="username" class="text-danger" font-weight-bold></span>
+    </div>
+    <div class="form-group">
+      <label>PASSWORD</label>
+      <input type="text" placeholder="please fill the password" class="form-control" id ="pass" autocomplete="off">
+      <span id="password" class="text-danger" font-weigth-bold></span> </div>
+
+
+        <div class="form-group">
+          <label> NUMBER:</label>
+          <input type="text" class="form-control" placeholder="please fill the number" id="num" autocomplete="off">
+          <span id="number" class="text-danger" font-weigth-bold></sspan>
+        </div>
+
+      <div class="form-group">
+        <label> EMAIL:</label>
+        <input type="text" placeholder="please fill the email" class="form-control"id="email">
+        <span id="emmail" class="text-danger font-weigth-bold"></span>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="submit" class="btn btn-success" name="submit" id="Submit">
+  </div>
+  </form>
+  </div>
+</div>
+<script>
+function valid()
+{
+var user=document.getElementById('user').value;
+var pass=document.getElementById('pass').value;
+var nu=document.getElementById('num').value;
+
+var em=document.getElementById('email').value;
+if(user=="")
+{
+  document.getElementById('username').innerHTML="PLEASE FILL THE USERNAME FIRST";
+  return false;
+}
+if((user.length<=3) || (user.length>=20))
+{
+  document.getElementById('username').innerHTML="please choose the suitable length";
+}
+if(!isNaN(user))
+{
+  document.getElementById('username').innerHTML="only character are allowed";
+}
+if(pass=="")
+{
+  document.getElementById('password').innerHTML="please fill the pasword first";
+  return false;
+}
+
+if(nu=="")
+{
+  document.getElementById('number').innerHTML="please fill the number first";
+  return false;
+}
+
+if((nu.length < 1) && (nu.length > 10))
+{
+document.getElementById('number').innerHTML="please fill the correct number";
+  return false;
+}
+
+if(isNaN(nu))
+{
+document.getElementById('number').innerHTML="please fill the number only";
+  return false;
+}
+if(em==" ")
+{
+  document.getElementById('emmail').innerHTML="please fill the email first";
+  return false;
+}
+if(em.indexOf('@')<=0)
+{
+  document.getElementById('emmail').innerHTML="please fill the correct mail id";
+  return false;
+}
+if((em.charAt(em.length-4)!='.') && (em.charAt(em.length-3)!='.'))
+{
+  document.getElementById('emmail').innerHTML='please fill the correct email id';
+  return false;
+}
+}
+</script>
+</body>
+</html>
